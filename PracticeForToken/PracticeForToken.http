@@ -1,0 +1,6 @@
+@PracticeForToken_HostAddress = http://localhost:5189
+
+GET {{PracticeForToken_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
