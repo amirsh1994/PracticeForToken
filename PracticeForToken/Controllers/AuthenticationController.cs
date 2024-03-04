@@ -63,7 +63,8 @@ namespace PracticeForToken.Controllers
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim("UserId",userId.ToString()),
-                    new Claim(ClaimTypes.Name,firstName)
+                    new Claim(ClaimTypes.Name,firstName),
+                    new Claim(ClaimTypes.System,"")
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(tokenTimeOut),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
@@ -72,6 +73,7 @@ namespace PracticeForToken.Controllers
             };
             var securityToken = jwtSecurityTokenHandler.CreateToken(tokenDescriptor);
             return jwtSecurityTokenHandler.WriteToken(securityToken);
+            //adding some text
 
         }
         
